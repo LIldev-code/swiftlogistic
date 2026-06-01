@@ -12,10 +12,10 @@
 }
 
 @media screen and (max-width: 640px) {
-  main > div {
+  :global(main > div) {
     padding: 0 12px !important;
   }
-  div[style*="grid-template-columns: 1fr 1fr"] {
+  :global(div[style*="grid-template-columns: 1fr 1fr"]) {
     grid-template-columns: 1fr !important;
   }
 }
