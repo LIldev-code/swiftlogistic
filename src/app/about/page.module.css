@@ -1,0 +1,108 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+.infoC {
+  display: flex;
+  gap: 2em;
+  padding: 1em 0;
+  margin: 2em 0;
+}
+.texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-width: 60%;
+}
+.infoC img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.globeInfo {
+  display: flex;
+  /* flex-direction: column; */
+  margin: 2em 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2em;
+}
+.globe h1 {
+  font-size: 40px;
+}
+.modes {
+  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1em;
+}
+.box {
+  border: 2px solid #d3d5db;
+  display: grid;
+  gap: 2em;
+  place-content: center;
+  padding: 1em;
+  height: 20em;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+.image {
+  display: grid;
+  place-content: center;
+}
+.box h2 {
+  font-size: 20px;
+}
+.box i {
+  font-size: 110px;
+}
+.box:first-child i {
+  color: royalblue;
+}
+.box:nth-child(2) i {
+  color: forestgreen;
+}
+.box:nth-child(3) i {
+  color: gold;
+}
+.box:nth-child(4) i {
+  color: skyblue;
+}
+.conclude {
+  font-size: 11px;
+  margin: 2em 0;
+}
+.conclude a {
+  font-size: 11px;
+  display: inline;
+  color: blue;
+}
+@media screen and (max-width: 567px) {
+  .infoC {
+    flex-direction: column;
+    /* text-align: center; */
+    padding: 0.5em;
+  }
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  .globe {
+    /* text-align: center; */
+    padding: 2em;
+    margin: 0 !important;
+  }
+
+  .globeInfo {
+    flex-direction: column;
+  }
+  .conclude {
+    padding: 2em;
+    margin: 0 !important;
+    /* text-align: center; */
+  }
+}

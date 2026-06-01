@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="300" height="80" viewBox="0 0 300 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="80" fill="white"/>
+  
+  <!-- Simple airplane icon -->
+  <path d="M40 25L30 20L20 22L15 25L20 27L15 29L10 27L8 30L15 32L20 35L30 37C33 35 40 30 40 30C42 28 42 27 40 25Z" fill="#dc2626"/>
+  
+  <!-- Company name -->
+  <path d="M70 30H80C82.7614 30 85 27.7614 85 25C85 22.2386 82.7614 20 80 20H70C67.2386 20 65 22.2386 65 25C65 27.7614 67.2386 30 70 30Z" fill="#dc2626"/>
+  <text x="65" y="35" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#1f2937">CARGO</text>
+  <text x="140" y="35" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#dc2626">LOGIC</text>
+  <text x="65" y="60" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#1f2937">FLIGHT</text>
+  
+  <!-- Simple divider -->
+  <line x1="65" y1="40" x2="200" y2="40" stroke="#e5e7eb" stroke-width="2"/>
+</svg>

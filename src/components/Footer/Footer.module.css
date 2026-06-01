@@ -1,0 +1,17 @@
+.left {
+  width: 22em;
+  cursor: pointer;
+  height: 8em;
+  display: grid;
+  place-content: center;
+}
+.left img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.left img.logo {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+}

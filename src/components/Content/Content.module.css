@@ -1,0 +1,295 @@
+.trackBox {
+  /* padding: 1em; */
+  gap: 1em;
+  display: flex;
+  background-color: #edecec;
+  padding: 0.5em;
+  width: 40%;
+  border-radius: 7px;
+  justify-content: space-between;
+}
+.trackBox input {
+  border: none;
+  width: fit-content;
+  outline: none;
+  min-width: 65%;
+  padding: 1em;
+  background-color: transparent;
+}
+.trackingNum {
+  padding: 0 1em;
+  padding-top: 1em;
+  /* background-color: red; */
+}
+@media screen and (max-width: 740px) {
+  .trackBox {
+    width: 100%;
+  }
+  .trackBox input {
+    width: 50%;
+  }
+}
+
+/* Contact Section Styles */
+.contactSection {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.contactSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.05) 0%, rgba(0, 123, 255, 0) 100%);
+  z-index: 0;
+}
+
+.contactContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  gap: 3rem;
+}
+
+/* Contact Info Styles */
+.contactInfo {
+  flex: 1;
+  min-width: 300px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contactInfo h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  position: relative;
+}
+
+.contactInfo h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #ffc107;
+}
+
+.contactInfo p {
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.infoIcon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  color: #ffc107;
+}
+
+.infoItem h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.infoItem p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.socialIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.socialIcon:hover {
+  background-color: #ffc107;
+  color: #1e3a8a;
+  transform: translateY(-3px);
+}
+
+/* Contact Form Styles */
+.contactForm {
+  flex: 1;
+  min-width: 300px;
+  background-color: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contactForm h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1e3a8a;
+  font-weight: 700;
+  position: relative;
+}
+
+.contactForm h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #ffc107;
+}
+
+.formGroup {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.formControl {
+  width: 100%;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: #333;
+}
+
+.formLabel {
+  position: absolute;
+  top: 0.75rem;
+  left: 0;
+  font-size: 1rem;
+  color: #6c757d;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.formControl:focus ~ .formLabel,
+.formControl:not(:placeholder-shown) ~ .formLabel {
+  top: -1.25rem;
+  font-size: 0.85rem;
+  color: #1e3a8a;
+}
+
+.formLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #ced4da;
+  transition: all 0.3s ease;
+}
+
+.formControl:focus ~ .formLine,
+.formControl:not(:placeholder-shown) ~ .formLine {
+  height: 2px;
+  background-color: #1e3a8a;
+}
+
+.formRow {
+  display: flex;
+  gap: 2rem;
+}
+
+.formRow .formGroup {
+  flex: 1;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.2);
+  margin-top: 1rem;
+}
+
+.submitBtn span {
+  margin-right: 0.5rem;
+}
+
+.submitBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+}
+
+.submitBtn:active {
+  transform: translateY(-1px);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .contactContainer {
+    flex-direction: column;
+  }
+  
+  .formRow {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .contactInfo,
+  .contactForm {
+    width: 100%;
+  }
+}
+
+/* Add placeholder support for the floating labels */
+.formControl::placeholder {
+  color: transparent;
+}
+
+/* Style for textarea */
+textarea.formControl {
+  resize: none;
+  min-height: 100px;
+}

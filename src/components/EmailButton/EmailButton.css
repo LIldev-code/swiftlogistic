@@ -1,0 +1,59 @@
+.email-contact-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto !important;
+}
+
+.tooltip {
+  background-color: white;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  position: absolute;
+  left: 70px; /* Position to the right of the button */
+  bottom: 20px; /* Align with the button */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.email-button {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  background-color: #c41d1d !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+  transition: all 0.3s ease !important;
+  color: white !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+}
+
+.email-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.email-button:hover + .tooltip,
+.tooltip:hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+.email-icon {
+  font-size: 24px !important;
+  display: block !important;
+  color: white !important;
+}
