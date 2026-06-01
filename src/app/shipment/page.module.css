@@ -11,11 +11,3 @@
   border-bottom: none;
 }
 
-@media screen and (max-width: 640px) {
-  :global(main > div) {
-    padding: 0 12px !important;
-  }
-  :global(div[style*="grid-template-columns: 1fr 1fr"]) {
-    grid-template-columns: 1fr !important;
-  }
-}
