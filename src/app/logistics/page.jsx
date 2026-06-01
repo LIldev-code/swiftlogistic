@@ -24,7 +24,7 @@ function Page() {
   ];
 
   const accordion = [
-    { title: "Parcel Delivery", body: "Swift Logistic has been moving your goods since 2010 and is committed to providing a great service every time. We handle everything from small documents to large commercial freight." },
+    { title: "Parcel Delivery", body: "SwiftCargo has been moving your goods since 2010 and is committed to providing a great service every time. We handle everything from small documents to large commercial freight." },
     { title: "International Freight", body: "Send freight internationally with our global network. From Europe to Asia, Americas to Africa — we have partnerships with carriers on every major trade lane offering the best possible rates." },
     { title: "Customs & Compliance", body: "Our expert customs brokerage team handles all documentation, import/export compliance, and duty payments so your cargo clears borders without delays." },
     { title: "Fulfilment Services", body: "We store your inventory at our depots and ship directly to your customers. Flexible, scalable fulfilment that grows with your business — including same-day dispatch." },
@@ -51,7 +51,7 @@ function Page() {
             End-to-End Freight Services for Every Need
           </h2>
           <p style={{ color: "#64748b", lineHeight: 1.8, fontSize: "15px", maxWidth: "700px", margin: "0 auto" }}>
-            Whether you need road, air, ocean, or rail — Swift Logistic provides optimised, cost-effective freight solutions with real-time visibility. Our experienced team ensures your cargo moves efficiently from origin to destination.
+            Whether you need road, air, ocean, or rail — SwiftCargo provides optimised, cost-effective freight solutions with real-time visibility. Our experienced team ensures your cargo moves efficiently from origin to destination.
           </p>
         </div>
       </section>
@@ -141,7 +141,7 @@ function Page() {
       {/* ── CTA ── */}
       <section style={{ background: "linear-gradient(135deg,#1e40af 0%,#1e3a8a 100%)", padding: "80px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: "660px", margin: "0 auto" }}>
-          <h2 style={{ color: "white", fontSize: "clamp(24px,3vw,38px)", fontWeight: 800, marginBottom: "16px" }}>Ship Smarter With Swift Logistic</h2>
+          <h2 style={{ color: "white", fontSize: "clamp(24px,3vw,38px)", fontWeight: 800, marginBottom: "16px" }}>Ship Smarter With SwiftCargo</h2>
           <p style={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.7, marginBottom: "36px" }}>Get a tailored freight solution from our logistics experts today.</p>
           <Link href="/contact" style={{ background: "white", color: "#1e40af", padding: "14px 36px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "15px" }}>Request a Quote</Link>
         </div>

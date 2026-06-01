@@ -17,15 +17,15 @@ function Footer() {
               <div class="footer-brand">
                 <div className={style.left} onClick={() => navigate.push("/")}>
                   <img
-                    src="/images/Screenshot__51_-removebg-preview.png"
-                    width={500}
-                    height={500}
-                    alt="Swift Logistic Logo"
+                    src="/images/swiftargo.png"
+                    width={200}
+                    height={64}
+                    alt="SwiftCargo Logo"
                     className={style.logo}
                   />
                 </div>
                 <p class="footer-text">
-                  Swift Logistic delivers fast, reliable and secure freight
+                  SwiftCargo delivers fast, reliable and secure freight
                   solutions across the globe — by air, sea, and road.
                 </p>
 
@@ -166,7 +166,7 @@ function Footer() {
 
             <div class="footer-bottom">
               <p class="copyright">
-                &copy; {year} Swift Logistic. All Rights Reserved
+                &copy; {year} SwiftCargo. All Rights Reserved
                 <Link href="#" class="copyright-link"></Link>
               </p>
             </div>

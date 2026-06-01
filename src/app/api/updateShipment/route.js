@@ -84,7 +84,7 @@ export const POST = async (req, res) => {
         console.log("Email configuration:", process.env.EMAIL_USER);
 
         let mailOptions = {
-          from: `"Cargo Logic" <${process.env.EMAIL_USER || 'noreply@cargologic.com'}>`,
+          from: `"SwiftCargo" <${process.env.EMAIL_USER || 'noreply@swiftcargo.com'}>`,
           to: shipment.receiverEmail,
           subject: `Shipment Status Update for Tracking Number ${trackingNumber}`,
           html: ` <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 10px;">

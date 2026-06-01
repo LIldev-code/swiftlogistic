@@ -6,7 +6,7 @@ export default function EmailButton() {
   const [hovered, setHovered] = useState(false);
 
   const openEmail = () => {
-    window.location.href = "mailto:hello@swiftlogisticsite.com?subject=Website%20Inquiry";
+    window.location.href = "mailto:hello@swiftcargo.com?subject=Website%20Inquiry";
   };
 
   return (

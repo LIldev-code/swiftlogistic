@@ -41,10 +41,9 @@
   gap: 14px;
 }
 .brandLogo {
-  border-radius: 12px;
   object-fit: contain;
-  background: white;
-  padding: 4px;
+  max-width: 280px;
+  height: auto;
 }
 .brandName {
   color: white;

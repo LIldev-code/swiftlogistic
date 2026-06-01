@@ -59,13 +59,12 @@ function Page() {
         <div className={style.leftContent}>
           <div className={style.brand}>
             <Image
-              src="/images/Screenshot__51_-removebg-preview.png"
-              alt="Swift Logistic"
-              width={64}
-              height={64}
+              src="/images/swiftargo.png"
+              alt="SwiftCargo"
+              width={280}
+              height={70}
               className={style.brandLogo}
             />
-            <span className={style.brandName}>Swift Logistic</span>
           </div>
           <h1 className={style.leftTitle}>
             Powering Global Logistics, One Shipment at a Time
@@ -84,7 +83,7 @@ function Page() {
             ))}
           </div>
           <div className={style.testimonial}>
-            <p>&ldquo;Swift Logistic has transformed our shipping operations with their reliable tracking system.&rdquo;</p>
+            <p>&ldquo;SwiftCargo has transformed our shipping operations with their reliable tracking system.&rdquo;</p>
             <span>— John Smith, CEO of Global Trade Inc.</span>
           </div>
         </div>

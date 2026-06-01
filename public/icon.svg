@@ -1,14 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <!-- Background circle -->
+  <!-- Background -->
   <rect width="32" height="32" rx="8" fill="#1e40af"/>
-  <!-- Truck/box body -->
-  <rect x="4" y="11" width="16" height="10" rx="1.5" fill="white"/>
+  <!-- Cargo box -->
+  <rect x="4" y="11" width="15" height="11" rx="2" fill="white"/>
+  <rect x="4" y="11" width="15" height="3" rx="1.5" fill="#93c5fd"/>
+  <rect x="11" y="11" width="2" height="11" fill="#93c5fd"/>
   <!-- Truck cab -->
-  <path d="M20 14h4.5a1 1 0 0 1 .8.4l2.4 3.2a1 1 0 0 1 .2.6V21a1 1 0 0 1-1 1H20V14z" fill="white"/>
+  <path d="M19 14h4a1 1 0 0 1 .8.4l2.8 3.7a1 1 0 0 1 .2.6V21a1 1 0 0 1-1 1H19V14z" fill="white"/>
   <!-- Wheels -->
-  <circle cx="8" cy="22.5" r="2" fill="#1e40af" stroke="white" stroke-width="1"/>
-  <circle cx="23" cy="22.5" r="2" fill="#1e40af" stroke="white" stroke-width="1"/>
+  <circle cx="8" cy="23.5" r="2.2" fill="#1e40af" stroke="white" stroke-width="1.2"/>
+  <circle cx="8" cy="23.5" r="0.8" fill="white"/>
+  <circle cx="23" cy="23.5" r="2.2" fill="#1e40af" stroke="white" stroke-width="1.2"/>
+  <circle cx="23" cy="23.5" r="0.8" fill="white"/>
   <!-- Speed lines -->
-  <rect x="4" y="8" width="8" height="1.5" rx="0.75" fill="#60a5fa"/>
-  <rect x="4" y="5.5" width="5" height="1.5" rx="0.75" fill="#93c5fd"/>
+  <rect x="3" y="7" width="9" height="1.5" rx="0.75" fill="#60a5fa"/>
+  <rect x="3" y="4.5" width="6" height="1.5" rx="0.75" fill="#93c5fd"/>
 </svg>

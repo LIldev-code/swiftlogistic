@@ -11,8 +11,8 @@ const EmailButton = dynamic(() => import("@/components/EmailButton/EmailButton")
 });
 
 export const metadata = {
-  title: "Swift Logistic | Global Shipping & Logistics",
-  description: "Swift Logistic — Fast, Reliable & Secure International Shipping and Freight Solutions Worldwide.",
+  title: "SwiftCargo | Global Shipping & Logistics",
+  description: "SwiftCargo — Fast, Reliable & Secure International Shipping and Freight Solutions Worldwide.",
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },

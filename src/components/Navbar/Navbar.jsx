@@ -40,8 +40,8 @@ function Navbar({ colors }) {
       <nav className={`${style.nav} ${isScrolled ? style.scrolled : ""} `}>
         <div className={style.left} onClick={() => navigate.push("/")}>
           <img
-            src="/images/Screenshot__51_-removebg-preview.png"
-            alt="Swift Logistic Logo"
+            src="/images/swiftargo.png"
+            alt="SwiftCargo Logo"
             className={style.logo}
           />
         </div>

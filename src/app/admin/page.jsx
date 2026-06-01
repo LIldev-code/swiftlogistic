@@ -327,7 +327,7 @@ export default function Admin() {
     
     try {
       // Generate a unique reference number if not provided
-      const generatedRefNo = 'SL-' + Math.floor(100000 + Math.random() * 900000);
+      const generatedRefNo = 'SC-' + Math.floor(100000 + Math.random() * 900000);
       
       // Calculate estimated delivery date (7 days from now) if not provided
       const estimatedDelivery = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
@@ -1267,7 +1267,7 @@ export default function Admin() {
             <svg className={style.loaderCircle} viewBox="25 25 50 50">
               <circle className={style.loaderCirclePath} cx="50" cy="50" r="20" fill="none" />
             </svg>
-            <div className={style.loaderText}>SL</div>
+            <div className={style.loaderText}>SC</div>
           </div>
         </div>
       )}
@@ -1276,13 +1276,13 @@ export default function Admin() {
         <div className={style.sidebarHeader}>
           <div className={style.logoContainer}>
             <Image
-              src="/images/Screenshot__51_-removebg-preview.png" 
-              alt="Swift Logistic Logo"
-              width={50}
+              src="/images/swiftargo.png" 
+              alt="SwiftCargo Logo"
+              width={200}
               height={50}
               className={style.logo}
             />
-            {showSidebar && <h2 className={style.logoText}>Swift Logistic</h2>}
+            {showSidebar && <h2 className={style.logoText}>SwiftCargo</h2>}
           </div>
           <button 
             className={style.toggleButton} 

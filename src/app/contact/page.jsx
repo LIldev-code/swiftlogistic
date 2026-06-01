@@ -23,14 +23,14 @@ function Page() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { firstName, lastName, email, address, message } = formData;
-    const mailtoLink = `mailto:hello@swiftlogisticsite.com?subject=Contact%20Form%20Submission&body=Name:%20${firstName}%20${lastName}%0AEmail:%20${email}%0AAddress/State:%20${address}%0AMessage/Comment:%20${message}`;
+    const mailtoLink = `mailto:hello@swiftcargo.com?subject=Contact%20Form%20Submission&body=Name:%20${firstName}%20${lastName}%0AEmail:%20${email}%0AAddress/State:%20${address}%0AMessage/Comment:%20${message}`;
     window.location.href = mailtoLink;
     setSubmitted(true);
   };
 
   const infoItems = [
-    { icon: "fa-envelope", label: "Email Us", value: "hello@swiftlogisticsite.com", href: "mailto:hello@swiftlogisticsite.com" },
-    { icon: "fa-globe", label: "Website", value: "swiftlogisticsite.com", href: "#" },
+    { icon: "fa-envelope", label: "Email Us", value: "hello@swiftcargo.com", href: "mailto:hello@swiftcargo.com" },
+    { icon: "fa-globe", label: "Website", value: "swiftcargo.com", href: "https://swiftcargo.com" },
     { icon: "fa-clock", label: "Support Hours", value: "Mon–Fri, 8am – 6pm", href: null },
     { icon: "fa-shipping-fast", label: "Track a Shipment", value: "Use our live tracker on the homepage", href: "/#track" },
   ];

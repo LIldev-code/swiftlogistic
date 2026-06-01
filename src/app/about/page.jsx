@@ -56,7 +56,7 @@ function Page() {
               Connecting the World Through Smarter Logistics
             </h2>
             <p style={{ color: "#64748b", lineHeight: 1.8, marginBottom: "18px", fontSize: "15px" }}>
-              Swift Logistic was founded with a vision to simplify global freight for businesses and individuals. Operating as a fully licensed customs clearing and logistics company, we have expanded to offer a full suite of freight services across air, sea, road and rail.
+              SwiftCargo was founded with a vision to simplify global freight for businesses and individuals. Operating as a fully licensed customs clearing and logistics company, we have expanded to offer a full suite of freight services across air, sea, road and rail.
             </p>
             <p style={{ color: "#64748b", lineHeight: 1.8, marginBottom: "32px", fontSize: "15px" }}>
               Our logistics network spans major ports and airports across Africa, Europe, Asia, and the Americas. We operate a modern fleet serving thousands of shipments per year, trusted by businesses for reliable, on-time global delivery.
@@ -66,7 +66,7 @@ function Page() {
             </Link>
           </div>
           <div data-aos="fade-left" style={{ position: "relative", height: "480px" }}>
-            <img src="/images/pexels-bernard-foss-3049419-4620555.jpg" alt="Swift Logistic operations" style={{ position: "absolute", top: 0, left: 0, width: "72%", height: "78%", objectFit: "cover", borderRadius: "16px", boxShadow: "0 20px 50px rgba(0,0,0,0.15)" }} />
+            <img src="/images/pexels-bernard-foss-3049419-4620555.jpg" alt="SwiftCargo operations" style={{ position: "absolute", top: 0, left: 0, width: "72%", height: "78%", objectFit: "cover", borderRadius: "16px", boxShadow: "0 20px 50px rgba(0,0,0,0.15)" }} />
             <img src="/images/pexels-tima-miroshnichenko-6169057.jpg" alt="Warehouse" style={{ position: "absolute", bottom: 0, right: 0, width: "58%", height: "50%", objectFit: "cover", borderRadius: "16px", boxShadow: "0 20px 50px rgba(0,0,0,0.15)" }} />
             <div style={{ position: "absolute", bottom: "27%", left: "52%", background: "#1e40af", color: "white", borderRadius: "12px", padding: "16px 20px", textAlign: "center", zIndex: 2, minWidth: "130px", boxShadow: "0 10px 30px rgba(30,64,175,0.4)" }}>
               <div style={{ fontSize: "26px", fontWeight: 800 }}>15+</div>
@@ -136,7 +136,7 @@ function Page() {
       <section style={{ padding: "100px 24px", background: "#f0f7ff" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
-            <p style={{ color: "#1e40af", fontWeight: 700, letterSpacing: "3px", fontSize: "13px", textTransform: "uppercase", marginBottom: "10px" }}>The People Behind Swift Logistic</p>
+            <p style={{ color: "#1e40af", fontWeight: 700, letterSpacing: "3px", fontSize: "13px", textTransform: "uppercase", marginBottom: "10px" }}>The People Behind SwiftCargo</p>
             <h2 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, color: "#0f172a" }}>Our Teams</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: "28px" }}>
@@ -163,7 +163,7 @@ function Page() {
         <div style={{ maxWidth: "660px", margin: "0 auto" }}>
           <h2 style={{ color: "white", fontSize: "clamp(24px,3vw,38px)", fontWeight: 800, marginBottom: "16px" }}>Ready to Work With Us?</h2>
           <p style={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.7, marginBottom: "36px" }}>
-            Contact our team today and discover why businesses across the globe choose Swift Logistic as their freight partner.
+            Contact our team today and discover why businesses across the globe choose SwiftCargo as their freight partner.
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" style={{ background: "white", color: "#1e40af", padding: "14px 32px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "15px" }}>Contact Us</Link>

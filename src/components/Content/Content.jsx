@@ -32,10 +32,10 @@ const galleryImages = [
 ];
 
 const testimonials = [
-  { img: "/images/Faces-400x400px-1_1_07-thegem-person.webp", name: "James Okonkwo", role: "Business Owner", text: "Swift Logistic delivered my cargo ahead of schedule. Pricing was transparent and their team was always reachable. Genuinely the best logistics partner I have worked with." },
-  { img: "/images/Faces-400x400px-1_1_18-thegem-person.webp", name: "Sarah Mitchell", role: "E-Commerce Merchant", text: "Moving my business inventory across continents was daunting, but Swift Logistic made it seamless. Every step was communicated clearly. Highly recommend for international freight." },
-  { img: "/images/Faces-400x400px-1_1_28-thegem-person.webp", name: "Carlos Mendes", role: "Import/Export Manager", text: "I have used Swift Logistic for over two years. Their service is top-notch with prompt deliveries, excellent support, and reliable tracking at every stage." },
-  { img: "/images/gettyimages-1219356771-640x640.jpg", name: "Fatima Al-Hassan", role: "Supply Chain Director", text: "Swift Logistic transported our vehicle fleet from the USA to Europe with zero damage and ahead of schedule. Smooth, stress-free, and great value." },
+  { img: "/images/Faces-400x400px-1_1_07-thegem-person.webp", name: "James Okonkwo", role: "Business Owner", text: "SwiftCargo delivered my cargo ahead of schedule. Pricing was transparent and their team was always reachable. Genuinely the best logistics partner I have worked with." },
+  { img: "/images/Faces-400x400px-1_1_18-thegem-person.webp", name: "Sarah Mitchell", role: "E-Commerce Merchant", text: "Moving my business inventory across continents was daunting, but SwiftCargo made it seamless. Every step was communicated clearly. Highly recommend for international freight." },
+  { img: "/images/Faces-400x400px-1_1_28-thegem-person.webp", name: "Carlos Mendes", role: "Import/Export Manager", text: "I have used SwiftCargo for over two years. Their service is top-notch with prompt deliveries, excellent support, and reliable tracking at every stage." },
+  { img: "/images/gettyimages-1219356771-640x640.jpg", name: "Fatima Al-Hassan", role: "Supply Chain Director", text: "SwiftCargo transported our vehicle fleet from the USA to Europe with zero damage and ahead of schedule. Smooth, stress-free, and great value." },
 ];
 
 function Content() {
@@ -181,7 +181,7 @@ function Content() {
           <div data-aos="fade-left">
             <p style={{ color: "#1e40af", fontWeight: 700, letterSpacing: "3px", fontSize: "13px", textTransform: "uppercase", marginBottom: "12px" }}>Why Choose Us</p>
             <h2 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, color: "#0f172a", lineHeight: 1.25, marginBottom: "20px" }}>We Are Your Trusted Global Logistics Partner</h2>
-            <p style={{ color: "#64748b", lineHeight: 1.8, marginBottom: "30px" }}>Swift Logistic delivers fast, secure and reliable freight solutions by air, sea and road. With coverage in over 150 countries, our expert team ensures your cargo arrives on time, every time.</p>
+            <p style={{ color: "#64748b", lineHeight: 1.8, marginBottom: "30px" }}>SwiftCargo delivers fast, secure and reliable freight solutions by air, sea and road. With coverage in over 150 countries, our expert team ensures your cargo arrives on time, every time.</p>
             <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "36px" }}>
               {[
                 "Door-to-door delivery across 150+ countries",
@@ -330,7 +330,7 @@ function Content() {
       <section style={{ background: "linear-gradient(135deg,#1e40af 0%,#1e3a8a 100%)", padding: "80px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto" }}>
           <h2 style={{ color: "white", fontSize: "clamp(26px,3vw,40px)", fontWeight: 800, marginBottom: "16px" }}>Ready to Ship With Confidence?</h2>
-          <p style={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.7, marginBottom: "36px", fontSize: "16px" }}>Get a free quote today and experience why thousands of businesses trust Swift Logistic for their global freight needs.</p>
+          <p style={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.7, marginBottom: "36px", fontSize: "16px" }}>Get a free quote today and experience why thousands of businesses trust SwiftCargo for their global freight needs.</p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" style={{ background: "white", color: "#1e40af", padding: "14px 32px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "15px" }}>Get a Free Quote</Link>
             <Link href="/about" style={{ background: "rgba(255,255,255,0.15)", color: "white", padding: "14px 32px", borderRadius: "8px", fontWeight: 600, textDecoration: "none", fontSize: "15px", border: "1px solid rgba(255,255,255,0.3)" }}>Learn About Us</Link>

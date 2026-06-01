@@ -48,7 +48,7 @@ function Page() {
               Secure, Flexible Warehousing for Any Business
             </h2>
             <p style={{ color: "#64748b", lineHeight: 1.8, marginBottom: "18px", fontSize: "15px" }}>
-              Swift Logistic offers comprehensive warehousing solutions for businesses of all sizes. Whether you need short-term storage during a move, or long-term bonded warehouse facilities, we have you covered.
+              SwiftCargo offers comprehensive warehousing solutions for businesses of all sizes. Whether you need short-term storage during a move, or long-term bonded warehouse facilities, we have you covered.
             </p>
             <p style={{ color: "#64748b", lineHeight: 1.8, marginBottom: "32px", fontSize: "15px" }}>
               Our modern facilities span 22,000 SQM across strategic locations, equipped with the latest inventory management systems and staffed by experienced logistics professionals around the clock.
@@ -126,7 +126,7 @@ function Page() {
             <p style={{ color: "#60a5fa", fontWeight: 700, letterSpacing: "3px", fontSize: "13px", textTransform: "uppercase", marginBottom: "12px" }}>Moving & Storage</p>
             <h2 style={{ fontSize: "clamp(24px,3vw,36px)", fontWeight: 800, color: "white", marginBottom: "20px" }}>Storage-in-Transit Solutions</h2>
             <p style={{ color: "#94a3b8", lineHeight: 1.8, marginBottom: "18px", fontSize: "15px" }}>
-              Planning a move but your new residence is not ready yet? Swift Logistic provides secure storage-in-transit options as part of our complete moving service.
+              Planning a move but your new residence is not ready yet? SwiftCargo provides secure storage-in-transit options as part of our complete moving service.
             </p>
             <p style={{ color: "#94a3b8", lineHeight: 1.8, marginBottom: "30px", fontSize: "15px" }}>
               We store your belongings at our secure facilities and move them into your new space the moment you are ready — at no extra hassle to you.

@@ -1,17 +1,17 @@
 .left {
-  width: 22em;
   cursor: pointer;
-  height: 8em;
-  display: grid;
-  place-content: center;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  width: fit-content;
 }
 .left img {
-  width: 100%;
-  height: 100%;
+  width: 260px;
+  height: auto;
   object-fit: contain;
 }
 .left img.logo {
-  width: 220px;
-  height: 220px;
+  width: 260px;
+  height: auto;
   object-fit: contain;
 }

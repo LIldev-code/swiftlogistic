@@ -179,7 +179,7 @@ function PageContent() {
 
           {/* Barcode + logo strip */}
           <div style={{ background: "white", borderRadius: "14px", padding: "24px", marginBottom: "24px", display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-            <img src="/images/Screenshot__51_-removebg-preview.png" alt="Swift Logistic" style={{ height: "60px", objectFit: "contain" }} />
+            <img src="/images/swiftargo.png" alt="SwiftCargo" style={{ height: "60px", objectFit: "contain" }} />
             <div style={{ flex: 1 }}>
               <Barcode trackingNumber={trackingNumber} />
             </div>

@@ -13,7 +13,7 @@ function Banner({ content, img, height }) {
       tag: "Global Freight Solutions",
       title: "Swift Delivery,\nWorldwide Reach",
       description:
-        "From sea to sky — Swift Logistic moves your cargo safely across every border, on time, every time.",
+        "From sea to sky — SwiftCargo moves your cargo safely across every border, on time, every time.",
       cta: "Track Your Shipment",
       ctaLink: "#track",
     },
@@ -95,7 +95,7 @@ function Banner({ content, img, height }) {
             textTransform: "uppercase",
             marginBottom: "16px",
           }}>
-            Swift Logistic
+            SwiftCargo
           </p>
           <h2 style={{
             color: "white",
