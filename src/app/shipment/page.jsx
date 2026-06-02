@@ -150,139 +150,147 @@ function PageContent() {
 
   const statusMeta = statusColors[shipments.status] || statusColors["Pending"];
 
+  const cardHeader = (icon, title) => (
+    <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "18px", paddingBottom: "14px", borderBottom: "2px solid #f1f5f9" }}>
+      <div style={{ width: "36px", height: "36px", background: "linear-gradient(135deg,#1e40af,#2563eb)", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+        <i className={`fas ${icon}`} style={{ color: "white", fontSize: "14px" }}></i>
+      </div>
+      <h3 style={{ fontWeight: 700, color: "#0f172a", fontSize: "15px", margin: 0 }}>{title}</h3>
+    </div>
+  );
+
+  const Field = ({ label, value }) => !value ? null : (
+    <div style={{ display: "flex", flexDirection: "column", gap: "3px", padding: "10px 0", borderBottom: "1px solid #f1f5f9" }}>
+      <span style={{ fontSize: "11px", fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: "0.6px" }}>{label}</span>
+      <span style={{ fontSize: "14px", fontWeight: 500, color: "#0f172a", lineHeight: 1.5 }}>{value}</span>
+    </div>
+  );
+
   return (
     <>
-      <main ref={printRef} style={{ background: "#f8fafc", minHeight: "100vh", paddingTop: "30px", paddingBottom: "60px" }}>
-        <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 20px" }}>
+      <main ref={printRef} style={{ background: "#f0f4f8", minHeight: "100vh", paddingTop: "32px", paddingBottom: "60px" }}>
+        <div style={{ maxWidth: "1020px", margin: "0 auto", padding: "0 20px" }}>
 
-          {/* Header bar */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "30px", flexWrap: "wrap", gap: "12px" }}>
+          {/* ── Top bar ── */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "24px", flexWrap: "wrap", gap: "12px" }}>
             <div>
-              <p style={{ color: "#64748b", fontSize: "13px", marginBottom: "4px" }}>Tracking Number</p>
-              <h1 style={{ fontSize: "clamp(20px,3vw,28px)", fontWeight: 800, color: "#0f172a" }}>{trackingNumber}</h1>
+              <p style={{ color: "#64748b", fontSize: "12px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "4px" }}>Tracking Number</p>
+              <h1 style={{ fontSize: "clamp(18px,3vw,26px)", fontWeight: 800, color: "#0f172a", margin: 0, letterSpacing: "-0.5px" }}>{trackingNumber}</h1>
             </div>
-            <button onClick={handlePrint} className="hide-when-printing" style={{ display: "flex", alignItems: "center", gap: "8px", background: "#1e40af", color: "white", border: "none", borderRadius: "8px", padding: "12px 22px", fontWeight: 600, cursor: "pointer", fontSize: "14px" }}>
-              <i className="fas fa-print"></i> Print Result
+            <button onClick={handlePrint} className="hide-when-printing" style={{ display: "flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg,#1e40af,#2563eb)", color: "white", border: "none", borderRadius: "10px", padding: "11px 22px", fontWeight: 700, cursor: "pointer", fontSize: "13px", boxShadow: "0 4px 14px rgba(30,64,175,0.3)" }}>
+              <i className="fas fa-print"></i> Print
             </button>
           </div>
 
-          {/* Status badge */}
-          <div style={{ background: statusMeta.bg, borderRadius: "14px", padding: "20px 28px", display: "flex", alignItems: "center", gap: "16px", marginBottom: "28px" }}>
-            <div style={{ width: "52px", height: "52px", background: statusMeta.color, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-              <i className={`fas ${statusMeta.icon}`} style={{ color: "white", fontSize: "20px" }}></i>
+          {/* ── Status + Logo/Barcode row ── */}
+          <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: "16px", marginBottom: "20px", alignItems: "stretch" }}>
+            {/* Status */}
+            <div style={{ background: statusMeta.bg, borderRadius: "14px", padding: "20px 28px", display: "flex", alignItems: "center", gap: "14px", border: `1.5px solid ${statusMeta.color}22` }}>
+              <div style={{ width: "48px", height: "48px", background: statusMeta.color, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <i className={`fas ${statusMeta.icon}`} style={{ color: "white", fontSize: "18px" }}></i>
+              </div>
+              <div>
+                <p style={{ color: "#64748b", fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", margin: "0 0 4px" }}>Current Status</p>
+                <p style={{ color: statusMeta.color, fontWeight: 800, fontSize: "18px", textTransform: "uppercase", margin: 0 }}>{shipments.status}</p>
+              </div>
             </div>
-            <div>
-              <p style={{ color: "#64748b", fontSize: "12px", marginBottom: "2px", textTransform: "uppercase", letterSpacing: "1px" }}>Current Status</p>
-              <p style={{ color: statusMeta.color, fontWeight: 800, fontSize: "20px", textTransform: "uppercase" }}>{shipments.status}</p>
+            {/* Logo + Barcode */}
+            <div style={{ background: "white", borderRadius: "14px", padding: "20px 24px", display: "flex", alignItems: "center", gap: "20px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", flexWrap: "wrap" }}>
+              <img src="/images/swiftargo.png" alt="SwiftCargo" style={{ height: "48px", objectFit: "contain" }} />
+              <div style={{ flex: 1, minWidth: "200px" }}><Barcode trackingNumber={trackingNumber} /></div>
             </div>
           </div>
 
-          {/* Barcode + logo strip */}
-          <div style={{ background: "white", borderRadius: "14px", padding: "24px", marginBottom: "24px", display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-            <img src="/images/swiftargo.png" alt="SwiftCargo" style={{ height: "60px", objectFit: "contain" }} />
-            <div style={{ flex: 1 }}>
-              <Barcode trackingNumber={trackingNumber} />
-            </div>
-          </div>
-
-          {/* Two-column: Shipper + Receiver */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "20px" }}>
+          {/* ── Shipper & Receiver ── */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "16px" }}>
             {[
-              { title: "Shipper Information", icon: "fa-user-tie", data: [shipments.sender, shipments.senderAddress, shipments.senderNumber, shipments.senderEmail] },
-              { title: "Receiver Information", icon: "fa-user", data: [shipments.receiver, shipments.receiverEmail, shipments.receiverNumber, shipments.receiverAddress] },
+              { title: "Shipper Information", icon: "fa-user-tie", fields: [
+                { label: "Name", value: shipments.sender },
+                { label: "Address", value: shipments.senderAddress },
+                { label: "Phone", value: shipments.senderNumber },
+                { label: "Email", value: shipments.senderEmail },
+              ]},
+              { title: "Receiver Information", icon: "fa-user", fields: [
+                { label: "Name", value: shipments.receiver },
+                { label: "Address", value: shipments.receiverAddress },
+                { label: "Phone", value: shipments.receiverNumber },
+                { label: "Email", value: shipments.receiverEmail },
+              ]},
             ].map((col, i) => (
-              <div key={i} style={{ background: "white", borderRadius: "14px", padding: "24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px", paddingBottom: "14px", borderBottom: "2px solid #f1f5f9" }}>
-                  <div style={{ width: "36px", height: "36px", background: "rgba(30,64,175,0.1)", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <i className={`fas ${col.icon}`} style={{ color: "#1e40af", fontSize: "15px" }}></i>
-                  </div>
-                  <h3 style={{ fontWeight: 700, color: "#0f172a", fontSize: "16px" }}>{col.title}</h3>
-                </div>
-                {col.data.map((val, j) => val && (
-                  <p key={j} style={{ color: "#374151", fontSize: "14px", marginBottom: "8px", lineHeight: 1.5 }}>{val}</p>
-                ))}
+              <div key={i} style={{ background: "white", borderRadius: "14px", padding: "22px 24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
+                {cardHeader(col.icon, col.title)}
+                {col.fields.map((f, j) => <Field key={j} label={f.label} value={f.value} />)}
               </div>
             ))}
           </div>
 
-          {/* Shipment Details */}
-          <div style={{ background: "white", borderRadius: "14px", padding: "24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", marginBottom: "20px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px", paddingBottom: "14px", borderBottom: "2px solid #f1f5f9" }}>
-              <div style={{ width: "36px", height: "36px", background: "rgba(30,64,175,0.1)", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <i className="fas fa-info-circle" style={{ color: "#1e40af", fontSize: "15px" }}></i>
-              </div>
-              <h3 style={{ fontWeight: 700, color: "#0f172a", fontSize: "16px" }}>Shipment Information</h3>
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0" }}>
-              <InfoRow label="Origin" value={shipments.origin} />
-              <InfoRow label="Destination" value={shipments.destination} />
-              <InfoRow label="Shipment Type" value={shipments.shipmentType} />
-              <InfoRow label="Weight" value={shipments.weight ? `${shipments.weight} kg` : null} />
-              <InfoRow label="Packages" value={shipments.packages} />
-              <InfoRow label="Shipping Mode" value={shipments.mode} />
-              <InfoRow label="Carrier" value={shipments.carrier} />
-              <InfoRow label="Payment Method" value={shipments.paymentMethod} />
-              <InfoRow label="Total Freight" value={shipments.totalFreight} />
-              <InfoRow label="Expected Delivery" value={shipments.expectedDeliveryDate} />
-              <InfoRow label="Pickup Date" value={shipments.pickupDate} />
-              <InfoRow label="Carrier Ref No." value={shipments.carrierReferenceNo} />
-              <InfoRow label="Departure Date" value={shipments.departureDate} hide />
-              <InfoRow label="Departure Time" value={shipments.departureTime} hide />
-              <InfoRow label="Pickup Time" value={shipments.pickupTime} hide />
-              {shipments.comments && <InfoRow label="Comments" value={shipments.comments} />}
+          {/* ── Shipment Details ── */}
+          <div style={{ background: "white", borderRadius: "14px", padding: "22px 24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", marginBottom: "16px" }}>
+            {cardHeader("fa-info-circle", "Shipment Information")}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0 24px" }}>
+              <Field label="Origin" value={shipments.origin} />
+              <Field label="Destination" value={shipments.destination} />
+              <Field label="Shipment Type" value={shipments.shipmentType} />
+              <Field label="Weight" value={shipments.weight ? `${shipments.weight} kg` : null} />
+              <Field label="Packages" value={shipments.packages} />
+              <Field label="Shipping Mode" value={shipments.mode} />
+              <Field label="Carrier" value={shipments.carrier} />
+              <Field label="Payment Method" value={shipments.paymentMethod} />
+              <Field label="Total Freight" value={shipments.totalFreight} />
+              <Field label="Expected Delivery" value={shipments.expectedDeliveryDate} />
+              <Field label="Pickup Date" value={shipments.pickupDate} />
+              <Field label="Carrier Ref No." value={shipments.carrierReferenceNo} />
+              <Field label="Departure Date" value={shipments.departureDate} />
+              <Field label="Departure Time" value={shipments.departureTime} />
+              <Field label="Pickup Time" value={shipments.pickupTime} />
+              {shipments.comments && <div style={{ gridColumn: "1/-1" }}><Field label="Comments" value={shipments.comments} /></div>}
             </div>
           </div>
 
-          {/* Package Dimensions */}
+          {/* ── Package Details ── */}
           {((shipments.length && shipments.length !== "3") || (shipments.width && shipments.width !== "4") || (shipments.height && shipments.height !== "4") || (shipments.productWeight && shipments.productWeight !== "0.3")) && (
-            <div style={{ background: "white", borderRadius: "14px", padding: "24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", marginBottom: "20px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px", paddingBottom: "14px", borderBottom: "2px solid #f1f5f9" }}>
-                <div style={{ width: "36px", height: "36px", background: "rgba(30,64,175,0.1)", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <i className="fas fa-box" style={{ color: "#1e40af", fontSize: "15px" }}></i>
-                </div>
-                <h3 style={{ fontWeight: 700, color: "#0f172a", fontSize: "16px" }}>Package Details</h3>
-              </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0" }}>
-                {shipments.productQuantity && shipments.productQuantity !== "3" && <InfoRow label="Quantity" value={shipments.productQuantity} />}
-                {shipments.description && shipments.description !== "GOOD" && <InfoRow label="Description" value={shipments.description} />}
-                {shipments.length && shipments.length !== "3" && <InfoRow label="Length (cm)" value={shipments.length} />}
-                {shipments.width && shipments.width !== "4" && <InfoRow label="Width (cm)" value={shipments.width} />}
-                {shipments.height && shipments.height !== "4" && <InfoRow label="Height (cm)" value={shipments.height} />}
-                {shipments.productWeight && shipments.productWeight !== "0.3" && <InfoRow label="Weight (g)" value={shipments.productWeight} />}
+            <div style={{ background: "white", borderRadius: "14px", padding: "22px 24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", marginBottom: "16px" }}>
+              {cardHeader("fa-box", "Package Details")}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0 24px" }}>
+                {shipments.productQuantity && shipments.productQuantity !== "3" && <Field label="Quantity" value={shipments.productQuantity} />}
+                {shipments.description && shipments.description !== "GOOD" && <Field label="Description" value={shipments.description} />}
+                {shipments.length && shipments.length !== "3" && <Field label="Length (cm)" value={shipments.length} />}
+                {shipments.width && shipments.width !== "4" && <Field label="Width (cm)" value={shipments.width} />}
+                {shipments.height && shipments.height !== "4" && <Field label="Height (cm)" value={shipments.height} />}
+                {shipments.productWeight && shipments.productWeight !== "0.3" && <Field label="Weight (g)" value={shipments.productWeight} />}
               </div>
             </div>
           )}
 
-          {/* Map */}
+          {/* ── Map ── */}
           {senderCoords && receiverCoords && (
-            <div style={{ background: "white", borderRadius: "14px", padding: "24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", marginBottom: "20px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px", paddingBottom: "14px", borderBottom: "2px solid #f1f5f9" }}>
-                <div style={{ width: "36px", height: "36px", background: "rgba(30,64,175,0.1)", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <i className="fas fa-map-marked-alt" style={{ color: "#1e40af", fontSize: "15px" }}></i>
-                </div>
-                <h3 style={{ fontWeight: 700, color: "#0f172a", fontSize: "16px" }}>Package Route</h3>
-              </div>
+            <div style={{ background: "white", borderRadius: "14px", padding: "22px 24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", marginBottom: "16px" }}>
+              {cardHeader("fa-map-marked-alt", "Package Route")}
               <MapComponent senderCoords={senderCoords} receiverCoords={receiverCoords} trackingNumber={trackingNumber} />
             </div>
           )}
 
-          {/* Shipment History */}
-          <div style={{ background: "white", borderRadius: "14px", padding: "24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px", paddingBottom: "14px", borderBottom: "2px solid #f1f5f9" }}>
-              <div style={{ width: "36px", height: "36px", background: "rgba(30,64,175,0.1)", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <i className="fas fa-history" style={{ color: "#1e40af", fontSize: "15px" }}></i>
-              </div>
-              <h3 style={{ fontWeight: 700, color: "#0f172a", fontSize: "16px" }}>Shipment History</h3>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <div style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
-                <div style={{ width: "12px", height: "12px", background: "#1e40af", borderRadius: "50%", marginTop: "4px", flexShrink: 0 }}></div>
-                <div>
-                  <p style={{ fontWeight: 600, color: "#0f172a", textTransform: "uppercase", marginBottom: "2px" }}>{shipments.status}</p>
-                  <p className="hide-when-printing" style={{ color: "#64748b", fontSize: "13px" }}>{shipments.historyTime ? shipments.historyTime : shipments.departureTime}</p>
-                  {shipments.heldInCountry && <p style={{ color: "#1e40af", fontSize: "13px", fontWeight: 600 }}>Location: {shipments.heldInCountry}</p>}
-                  <p style={{ color: "#94a3b8", fontSize: "12px" }}>Updated by: William Fred</p>
-                </div>
+          {/* ── Shipment History ── */}
+          <div style={{ background: "white", borderRadius: "14px", padding: "22px 24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
+            {cardHeader("fa-history", "Shipment History")}
+            <div style={{ position: "relative", paddingLeft: "28px" }}>
+              {/* vertical line */}
+              <div style={{ position: "absolute", left: "7px", top: "8px", bottom: "8px", width: "2px", background: "#e2e8f0" }}></div>
+              <div style={{ position: "relative" }}>
+                <div style={{ width: "16px", height: "16px", background: statusMeta.color, borderRadius: "50%", position: "absolute", left: "-31px", top: "2px", border: "3px solid white", boxShadow: `0 0 0 2px ${statusMeta.color}` }}></div>
+                <p style={{ fontWeight: 700, color: "#0f172a", fontSize: "14px", textTransform: "uppercase", margin: "0 0 4px" }}>{shipments.status}</p>
+                <p className="hide-when-printing" style={{ color: "#64748b", fontSize: "13px", margin: "0 0 3px" }}>
+                  <i className="fas fa-clock" style={{ marginRight: "6px", color: "#94a3b8" }}></i>
+                  {shipments.historyTime ? shipments.historyTime : shipments.departureTime}
+                </p>
+                {shipments.heldInCountry && (
+                  <p style={{ color: "#1e40af", fontSize: "13px", fontWeight: 600, margin: "0 0 3px" }}>
+                    <i className="fas fa-map-marker-alt" style={{ marginRight: "6px" }}></i>Location: {shipments.heldInCountry}
+                  </p>
+                )}
+                <p style={{ color: "#94a3b8", fontSize: "12px", margin: 0 }}>
+                  <i className="fas fa-user-check" style={{ marginRight: "6px" }}></i>Updated by: Brisa Mullen
+                </p>
               </div>
             </div>
           </div>
@@ -302,7 +310,7 @@ function Page() {
           <svg className="loader-circle" viewBox="25 25 50 50">
             <circle className="loader-circle-path" cx="50" cy="50" r="20" fill="none" />
           </svg>
-          <div className="loader-text">SL</div>
+          <div className="loader-text">SC</div>
         </div>
       </div>
     }>
