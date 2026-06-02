@@ -129,7 +129,7 @@ function PageContent() {
           <svg className="loader-circle" viewBox="25 25 50 50">
             <circle className="loader-circle-path" cx="50" cy="50" r="20" fill="none" />
           </svg>
-          <div className="loader-text">SL</div>
+          <div className="loader-text">SC</div>
         </div>
       </div>
     );

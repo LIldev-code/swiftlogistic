@@ -197,7 +197,7 @@ export const POST = async (req) => {
       <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 10px;">
         <h1 style="color: #333;">Your shipment has been successfully created!</h1>
         <p style="font-size: 16px; color: #555;">Your tracking number is: <span id="trackingNumber" style="font-weight: bold; color: #000;">${trackingNumber}</span></p>
-        <p><a href="https://swiftcargo.com" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #007bff; text-decoration: none; border-radius: 5px;">Track your shipment</a></p>
+        <p><a href="https://swiftcargo.com/shipment?num=${trackingNumber}" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #1e40af; text-decoration: none; border-radius: 5px;">Track your shipment</a></p>
         <p style="font-size: 14px; font-weight: 400; margin-top: 20px; color: #555;">Thanks for shipping with us!</p>
       </div>
       `,
