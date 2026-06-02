@@ -208,13 +208,11 @@ function PageContent() {
                 { label: "Name", value: shipments.sender },
                 { label: "Address", value: shipments.senderAddress },
                 { label: "Phone", value: shipments.senderNumber },
-                { label: "Email", value: shipments.senderEmail },
               ]},
               { title: "Receiver Information", icon: "fa-user", fields: [
                 { label: "Name", value: shipments.receiver },
                 { label: "Address", value: shipments.receiverAddress },
                 { label: "Phone", value: shipments.receiverNumber },
-                { label: "Email", value: shipments.receiverEmail },
               ]},
             ].map((col, i) => (
               <div key={i} style={{ background: "white", borderRadius: "14px", padding: "22px 24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
@@ -227,22 +225,28 @@ function PageContent() {
           {/* ── Shipment Details ── */}
           <div style={{ background: "white", borderRadius: "14px", padding: "22px 24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", marginBottom: "16px" }}>
             {cardHeader("fa-info-circle", "Shipment Information")}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0 24px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 32px" }}>
+              {/* Route */}
               <Field label="Origin" value={shipments.origin} />
               <Field label="Destination" value={shipments.destination} />
+              {/* Departure */}
+              <Field label="Departure Date" value={shipments.departureDate} />
+              <Field label="Departure Time" value={shipments.departureTime} />
+              {/* Pickup */}
+              <Field label="Pickup Date" value={shipments.pickupDate} />
+              <Field label="Pickup Time" value={shipments.pickupTime} />
+              {/* Delivery */}
+              <Field label="Expected Delivery" value={shipments.expectedDeliveryDate} />
+              <Field label="Carrier Ref No." value={shipments.carrierReferenceNo} />
+              {/* Shipment details */}
               <Field label="Shipment Type" value={shipments.shipmentType} />
+              <Field label="Shipping Mode" value={shipments.mode} />
               <Field label="Weight" value={shipments.weight ? `${shipments.weight} kg` : null} />
               <Field label="Packages" value={shipments.packages} />
-              <Field label="Shipping Mode" value={shipments.mode} />
+              {/* Commercial */}
               <Field label="Carrier" value={shipments.carrier} />
               <Field label="Payment Method" value={shipments.paymentMethod} />
               <Field label="Total Freight" value={shipments.totalFreight} />
-              <Field label="Expected Delivery" value={shipments.expectedDeliveryDate} />
-              <Field label="Pickup Date" value={shipments.pickupDate} />
-              <Field label="Carrier Ref No." value={shipments.carrierReferenceNo} />
-              <Field label="Departure Date" value={shipments.departureDate} />
-              <Field label="Departure Time" value={shipments.departureTime} />
-              <Field label="Pickup Time" value={shipments.pickupTime} />
               {shipments.comments && <div style={{ gridColumn: "1/-1" }}><Field label="Comments" value={shipments.comments} /></div>}
             </div>
           </div>
