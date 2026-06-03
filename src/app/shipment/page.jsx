@@ -56,6 +56,7 @@ function PageContent() {
   const trackingNumber = searchParams.get("num");
   const [senderCoords, setSenderCoords] = useState(null);
   const [receiverCoords, setReceiverCoords] = useState(null);
+  const [currentCoords, setCurrentCoords] = useState(null);
   const [estimatedDeliveryTime, setEstimatedDeliveryTime] = useState("");
   const printRef = useRef();
 
@@ -93,6 +94,10 @@ function PageContent() {
               setReceiverCoords(rCoords);
               const dist = L.latLng(sCoords).distanceTo(L.latLng(rCoords)) / 1000;
               setEstimatedDeliveryTime(calculateEstimatedDeliveryTime(dist, data.shipmentData.shippingMethod));
+            }
+            if (data.shipmentData.heldInCountry) {
+              const cCoords = await geocodeAddress(data.shipmentData.heldInCountry);
+              if (cCoords) setCurrentCoords(cCoords);
             }
             setLoading(false);
           } else {
@@ -270,7 +275,7 @@ function PageContent() {
           {senderCoords && receiverCoords && (
             <div style={{ background: "white", borderRadius: "14px", padding: "22px 24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", marginBottom: "16px" }}>
               {cardHeader("fa-map-marked-alt", "Package Route")}
-              <MapComponent senderCoords={senderCoords} receiverCoords={receiverCoords} trackingNumber={trackingNumber} />
+              <MapComponent senderCoords={senderCoords} receiverCoords={receiverCoords} trackingNumber={trackingNumber} currentCoords={currentCoords} currentLocation={shipments.heldInCountry} />
             </div>
           )}
 

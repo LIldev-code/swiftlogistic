@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-const MapComponent = ({ senderCoords, receiverCoords, trackingNumber }) => {
+const MapComponent = ({ senderCoords, receiverCoords, trackingNumber, currentCoords, currentLocation }) => {
   const mapRef = useRef(null);
   const movingMarkerRef = useRef(null);
   const router = useRouter();
@@ -350,11 +350,38 @@ const MapComponent = ({ senderCoords, receiverCoords, trackingNumber }) => {
           // Start the animation
           requestAnimationFrame(animateMarker);
           
-          // Fit map to show both points with padding
+          // Current location marker (orange pin) if heldInCountry is set
+          if (currentCoords && currentCoords.length === 2) {
+            const currentMarkerEl = document.createElement('div');
+            currentMarkerEl.style.width = '36px';
+            currentMarkerEl.style.height = '36px';
+            currentMarkerEl.style.borderRadius = '50%';
+            currentMarkerEl.style.backgroundColor = '#f97316';
+            currentMarkerEl.style.display = 'flex';
+            currentMarkerEl.style.justifyContent = 'center';
+            currentMarkerEl.style.alignItems = 'center';
+            currentMarkerEl.style.color = 'white';
+            currentMarkerEl.style.fontSize = '16px';
+            currentMarkerEl.style.boxShadow = '0 0 14px rgba(249,115,22,0.7)';
+            currentMarkerEl.style.border = '3px solid white';
+            currentMarkerEl.style.zIndex = '20';
+            currentMarkerEl.innerHTML = '<i class="fas fa-map-marker-alt"></i>';
+
+            new mapboxgl.Marker(currentMarkerEl)
+              .setLngLat(currentCoords)
+              .setPopup(new mapboxgl.Popup().setHTML(`<h4 style="margin:0 0 4px">Current Location</h4><p style="margin:0">${currentLocation || 'In Transit'}</p>`))
+              .addTo(mapRef.current);
+          }
+
+          // Fit map to show both points (+ current location) with padding
           const bounds = new mapboxgl.LngLatBounds()
             .extend(startCoords)
             .extend(endCoords);
-          
+
+          if (currentCoords && currentCoords.length === 2) {
+            bounds.extend(currentCoords);
+          }
+
           mapRef.current.fitBounds(bounds, {
             padding: 100,
             duration: 1000
