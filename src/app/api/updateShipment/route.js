@@ -43,28 +43,17 @@ export const POST = async (req, res) => {
     // Ensure historyTime is properly set and logged
     console.log('History time in update data:', updateData.historyTime);
     
-    // Update the shipment data first, but exclude historyTime to handle it separately
-    const { historyTime: historyTimeValue, ...otherUpdateData } = updateData;
+    // Exclude historyTime and historyDate to set them explicitly after Object.assign
+    const { historyTime: historyTimeValue, historyDate: historyDateValue, ...otherUpdateData } = updateData;
     Object.assign(shipment, otherUpdateData);
-    
-    // Explicitly set historyTime after Object.assign to ensure it's not overwritten
-    console.log('History time in update data before processing:', historyTimeValue);
-    
-    // DIRECT FIX: Explicitly set the historyTime field
-    // Make sure we're working with a string value
-    const timeToSet = (historyTimeValue !== undefined && historyTimeValue !== null) ? String(historyTimeValue) : '12:00';
-    console.log('Setting history time to:', timeToSet);
-    
-    // Set directly on the document using direct MongoDB syntax
+
+    const timeToSet = (historyTimeValue !== undefined && historyTimeValue !== null) ? String(historyTimeValue) : '';
+    const dateToSet = (historyDateValue !== undefined && historyDateValue !== null) ? String(historyDateValue) : '';
+
     shipment.set('historyTime', timeToSet);
-    
-    // Force Mongoose to recognize the change
+    shipment.set('historyDate', dateToSet);
     shipment.markModified('historyTime');
-    
-    // Double-check that the value was set
-    console.log('Checking if historyTime was set correctly:', shipment.get('historyTime'));
-    
-    console.log('Final history time value before save:', shipment.historyTime);
+    shipment.markModified('historyDate');
     await shipment.save();
 
     // Send email notification if the status has changed

@@ -151,7 +151,12 @@ const ShipmentSchema = new mongoose.Schema(
     historyTime: {
       type: String,
       required: false,
-      default: "",  // Add default value to ensure field is always created
+      default: "",
+    },
+    historyDate: {
+      type: String,
+      required: false,
+      default: "",
     },
     heldInCountry: {
       type: String,

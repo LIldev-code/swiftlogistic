@@ -60,7 +60,8 @@ function EditShipmentContent() {
   const [expectedDeliveryDate, setExpectedDeliveryDate] = useState("");
   const [comments, setComments] = useState("");
   const [heldInCountry, setHeldInCountry] = useState("");
-  const [historyTime, setHistoryTime] = useState("12:00"); // Default to 12:00 for testing
+  const [historyTime, setHistoryTime] = useState("12:00");
+  const [historyDate, setHistoryDate] = useState("");
 
   // List of countries for dropdown
   const countries = [
@@ -236,6 +237,7 @@ function EditShipmentContent() {
           setComments(shipment.comments || '');
           setHeldInCountry(shipment.heldInCountry || '');
           setHistoryTime(shipment.historyTime || '');
+          setHistoryDate(shipment.historyDate || '');
         } else {
           setError('Shipment not found');
           if (notyf) notyf.error('Shipment not found');
@@ -304,6 +306,7 @@ function EditShipmentContent() {
         expectedDeliveryDate: expectedDeliveryDate,
         heldInCountry,
         historyTime,
+        historyDate,
         comments
       };
       
@@ -746,17 +749,22 @@ function EditShipmentContent() {
             </div>
             
             <div className={style.formGroup}>
-              <label htmlFor="historyTime">History Time</label>
+              <label htmlFor="historyDate">Current Date</label>
+              <input
+                type="date"
+                id="historyDate"
+                value={historyDate || ''}
+                onChange={(e) => setHistoryDate(e.target.value)}
+              />
+            </div>
+
+            <div className={style.formGroup}>
+              <label htmlFor="historyTime">Current Time</label>
               <input
                 type="time"
                 id="historyTime"
                 value={historyTime || ''}
-                onChange={(e) => {
-                  const newTime = e.target.value;
-                  console.log('Setting history time:', newTime);
-                  // Make sure we're setting a non-empty string
-                  setHistoryTime(newTime || '');
-                }}
+                onChange={(e) => setHistoryTime(e.target.value || '')}
               />
             </div>
             

@@ -45,6 +45,8 @@ export default function Admin() {
   const [paymentMethod, setPaymentMethod] = useState("");
   const [shipmentStatus, setShipmentStatus] = useState("Out for Delivery");
   const [heldInCountry, setHeldInCountry] = useState("");
+  const [historyDate, setHistoryDate] = useState("");
+  const [historyTime, setHistoryTime] = useState("");
   
   // Package details
   const [packageType, setPackageType] = useState("");
@@ -387,6 +389,8 @@ export default function Admin() {
         specialInstructions: '',
         status: shipmentStatus,
         heldInCountry: heldInCountry,
+        historyDate: historyDate || '',
+        historyTime: historyTime || '',
         
         // Package details
         packageQty: '',
@@ -1050,7 +1054,7 @@ export default function Admin() {
             
             {/* Package Held In dropdown - always visible */}
             <div className={style.formGroup}>
-              <label htmlFor="heldInCountry">Package Location</label>
+              <label htmlFor="heldInCountry">Current Location</label>
               <select
                 id="heldInCountry"
                 value={heldInCountry}
@@ -1064,6 +1068,26 @@ export default function Admin() {
                   </option>
                 ))}
               </select>
+            </div>
+
+            <div className={style.formGroup}>
+              <label htmlFor="historyDate">Current Date</label>
+              <input
+                type="date"
+                id="historyDate"
+                value={historyDate}
+                onChange={(e) => setHistoryDate(e.target.value)}
+              />
+            </div>
+
+            <div className={style.formGroup}>
+              <label htmlFor="historyTime">Current Time</label>
+              <input
+                type="time"
+                id="historyTime"
+                value={historyTime}
+                onChange={(e) => setHistoryTime(e.target.value)}
+              />
             </div>
             
             <div className={style.formGroup}>

@@ -278,20 +278,40 @@ function PageContent() {
           <div style={{ background: "white", borderRadius: "14px", padding: "22px 24px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
             {cardHeader("fa-history", "Shipment History")}
             <div style={{ position: "relative", paddingLeft: "28px" }}>
-              {/* vertical line */}
               <div style={{ position: "absolute", left: "7px", top: "8px", bottom: "8px", width: "2px", background: "#e2e8f0" }}></div>
               <div style={{ position: "relative" }}>
                 <div style={{ width: "16px", height: "16px", background: statusMeta.color, borderRadius: "50%", position: "absolute", left: "-31px", top: "2px", border: "3px solid white", boxShadow: `0 0 0 2px ${statusMeta.color}` }}></div>
-                <p style={{ fontWeight: 700, color: "#0f172a", fontSize: "14px", textTransform: "uppercase", margin: "0 0 4px" }}>{shipments.status}</p>
-                <p className="hide-when-printing" style={{ color: "#64748b", fontSize: "13px", margin: "0 0 3px" }}>
-                  <i className="fas fa-clock" style={{ marginRight: "6px", color: "#94a3b8" }}></i>
-                  {shipments.historyTime ? shipments.historyTime : shipments.departureTime}
-                </p>
-                {shipments.heldInCountry && (
-                  <p style={{ color: "#1e40af", fontSize: "13px", fontWeight: 600, margin: "0 0 3px" }}>
-                    <i className="fas fa-map-marker-alt" style={{ marginRight: "6px" }}></i>Location: {shipments.heldInCountry}
-                  </p>
-                )}
+
+                {/* Status */}
+                <p style={{ fontWeight: 700, color: "#0f172a", fontSize: "14px", textTransform: "uppercase", margin: "0 0 10px" }}>{shipments.status}</p>
+
+                {/* Date + Time row */}
+                <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", marginBottom: "8px" }}>
+                  {(shipments.historyDate) && (
+                    <span style={{ display: "flex", alignItems: "center", gap: "6px", color: "#374151", fontSize: "13px", background: "#f1f5f9", padding: "5px 12px", borderRadius: "20px" }}>
+                      <i className="fas fa-calendar-alt" style={{ color: "#1e40af", fontSize: "12px" }}></i>
+                      {shipments.historyDate}
+                    </span>
+                  )}
+                  {(shipments.historyTime) && (
+                    <span style={{ display: "flex", alignItems: "center", gap: "6px", color: "#374151", fontSize: "13px", background: "#f1f5f9", padding: "5px 12px", borderRadius: "20px" }}>
+                      <i className="fas fa-clock" style={{ color: "#1e40af", fontSize: "12px" }}></i>
+                      {shipments.historyTime}
+                    </span>
+                  )}
+                </div>
+
+                {/* Current Location — always show if set */}
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "#eff6ff", border: "1px solid #bfdbfe", borderRadius: "10px", padding: "10px 14px", marginBottom: "8px" }}>
+                  <i className="fas fa-map-marker-alt" style={{ color: "#1e40af", fontSize: "14px" }}></i>
+                  <div>
+                    <p style={{ color: "#94a3b8", fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0 }}>Current Location</p>
+                    <p style={{ color: "#1e40af", fontWeight: 600, fontSize: "14px", margin: 0 }}>
+                      {shipments.heldInCountry || "In Transit"}
+                    </p>
+                  </div>
+                </div>
+
                 <p style={{ color: "#94a3b8", fontSize: "12px", margin: 0 }}>
                   <i className="fas fa-user-check" style={{ marginRight: "6px" }}></i>Updated by: Brisa Mullen
                 </p>
