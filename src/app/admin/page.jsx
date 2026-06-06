@@ -30,6 +30,7 @@ export default function Admin() {
   // Shipment details
   const [shipmentType, setShipmentType] = useState("");
   const [weight, setWeight] = useState("");
+  const [weightUnit, setWeightUnit] = useState("kg");
   const [courier, setCourier] = useState("");
   const [packages, setPackages] = useState("");
   const [mode, setMode] = useState("");
@@ -115,6 +116,7 @@ export default function Admin() {
     "iTunes Gift Card",
     "RIA Money",
     "Bitcoin",
+    "USDT",
     "Cash App"
   ];
   
@@ -350,7 +352,7 @@ export default function Admin() {
         
         // Shipment details
         shipmentType: shipmentType || '',
-        weight: weight || '',
+        weight: weight ? `${weight} ${weightUnit}` : '',
         courier: courier || '',
         packages: packages || '',
         mode: mode || '',
@@ -442,7 +444,7 @@ export default function Admin() {
             },
             shipment: {
               type: shipmentType,
-              weight: weight,
+              weight: weight ? `${weight} ${weightUnit}` : '',
               courier: courier,
               packages: packages,
               mode: mode,
@@ -485,6 +487,8 @@ export default function Admin() {
         setReceiverNumber("");
         setReceiverAddress("");
         setShipmentType("");
+        setWeight("");
+        setWeightUnit("kg");
         setPackageType("");
         setPackageDescription("");
         setProduct("");
@@ -891,15 +895,26 @@ export default function Admin() {
             </div>
             
             <div className={style.formGroup}>
-              <label htmlFor="weight">Weight (kg)</label>
-              <input
-                type="number"
-                id="weight"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
-                placeholder="Enter weight in kg"
-                required
-              />
+              <label htmlFor="weight">Weight</label>
+              <div className={style.weightInputGroup}>
+                <input
+                  type="number"
+                  id="weight"
+                  value={weight}
+                  onChange={(e) => setWeight(e.target.value)}
+                  placeholder="Enter weight"
+                  required
+                />
+                <select
+                  id="weightUnit"
+                  value={weightUnit}
+                  onChange={(e) => setWeightUnit(e.target.value)}
+                  required
+                >
+                  <option value="kg">kg</option>
+                  <option value="g">g</option>
+                </select>
+              </div>
             </div>
             
             <div className={style.formGroup}>

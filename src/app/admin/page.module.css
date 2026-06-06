@@ -450,6 +450,12 @@
 .formGroup textarea:focus { border-color: #1e40af; background: white; }
 .formGroup textarea { resize: vertical; min-height: 80px; }
 
+.weightInputGroup {
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  gap: 8px;
+}
+
 .formActions {
   display: flex;
   gap: 14px;
