@@ -1,8 +1,6 @@
 import Shipment from "@/models/Shipment";
 import dbConnect from "@/utils/dbConnect";
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
-
 function generateNumericId(length) {
   let result = "";
   const characters = "0123456789";
@@ -177,38 +175,6 @@ export const POST = async (req) => {
     });
 
     await newShipment.save();
-
-    // Nodemailer configuration
-    let transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    let mailOptions = {
-      from: `"SwiftCargo" <${process.env.EMAIL_USER}>`,
-      to: receiverEmail,
-      subject: `Your Shipment has been Created - Tracking Number ${trackingNumber}`,
-      html: `
-      <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 10px;">
-        <h1 style="color: #333;">Your shipment has been successfully created!</h1>
-        <p style="font-size: 16px; color: #555;">Your tracking number is: <span id="trackingNumber" style="font-weight: bold; color: #000;">${trackingNumber}</span></p>
-        <p><a href="https://swiftcargo.com/shipment?num=${trackingNumber}" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #1e40af; text-decoration: none; border-radius: 5px;">Track your shipment</a></p>
-        <p style="font-size: 14px; font-weight: 400; margin-top: 20px; color: #555;">Thanks for shipping with us!</p>
-      </div>
-      `,
-    };
-
-    try {
-      await transporter.sendMail(mailOptions);
-      console.log("Email sent successfully");
-    } catch (error) {
-      console.error("Error sending email:", error);
-    }
 
     return new NextResponse(JSON.stringify(newShipment), { status: 201 });
   } catch (error) {
