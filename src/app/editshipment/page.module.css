@@ -146,6 +146,12 @@
   min-height: 100px;
 }
 
+.weightInputGroup {
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  gap: 0.5rem;
+}
+
 .formActions {
   display: flex;
   justify-content: flex-end;

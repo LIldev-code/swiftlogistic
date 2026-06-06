@@ -41,6 +41,7 @@ function EditShipmentContent() {
   // Shipment details
   const [shipmentType, setShipmentType] = useState("");
   const [weight, setWeight] = useState("");
+  const [weightUnit, setWeightUnit] = useState("kg");
   const [courier, setCourier] = useState("");
   const [packages, setPackages] = useState("");
   const [mode, setMode] = useState("");
@@ -122,6 +123,7 @@ function EditShipmentContent() {
     "iTunes Gift Card",
     "RIA Money",
     "Bitcoin",
+    "USDT",
     "Cash App"
   ];
 
@@ -198,7 +200,14 @@ function EditShipmentContent() {
           setReceiverAddress(shipment.receiverAddress || '');
           
           setShipmentType(shipment.shipmentType || '');
-          setWeight(shipment.weight || '');
+          const weightMatch = String(shipment.weight || '').match(/^(.+?)\s*(kg|g)$/i);
+          if (weightMatch) {
+            setWeight(weightMatch[1].trim());
+            setWeightUnit(weightMatch[2].toLowerCase());
+          } else {
+            setWeight(shipment.weight || '');
+            setWeightUnit('kg');
+          }
           setCourier(shipment.courier || '');
           setPackages(shipment.packages || '');
           setMode(shipment.mode || '');
@@ -286,7 +295,7 @@ function EditShipmentContent() {
         receiverNumber,
         receiverAddress,
         shipmentType,
-        weight,
+        weight: weight ? `${weight} ${weightUnit}` : '',
         courier,
         packages,
         mode,
@@ -562,13 +571,23 @@ function EditShipmentContent() {
             
             <div className={style.formGroup}>
               <label htmlFor="weight">Weight</label>
-              <input
-                type="text"
-                id="weight"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
-                placeholder="e.g., 25kg"
-              />
+              <div className={style.weightInputGroup}>
+                <input
+                  type="number"
+                  id="weight"
+                  value={weight}
+                  onChange={(e) => setWeight(e.target.value)}
+                  placeholder="Enter weight"
+                />
+                <select
+                  id="weightUnit"
+                  value={weightUnit}
+                  onChange={(e) => setWeightUnit(e.target.value)}
+                >
+                  <option value="kg">kg</option>
+                  <option value="g">g</option>
+                </select>
+              </div>
             </div>
             
             <div className={style.formGroup}>
