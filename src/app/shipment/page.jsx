@@ -246,7 +246,7 @@ function PageContent() {
               {/* Shipment details */}
               <Field label="Shipment Type" value={shipments.shipmentType} />
               <Field label="Shipping Mode" value={shipments.mode} />
-              <Field label="Weight" value={shipments.weight ? `${shipments.weight} kg` : null} />
+              <Field label="Weight" value={shipments.weight} />
               <Field label="Packages" value={shipments.packages} />
               {/* Commercial */}
               <Field label="Carrier" value={shipments.carrier} />
