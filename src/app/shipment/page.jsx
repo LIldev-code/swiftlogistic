@@ -318,7 +318,7 @@ function PageContent() {
                 </div>
 
                 <p style={{ color: "#94a3b8", fontSize: "12px", margin: 0 }}>
-                  <i className="fas fa-user-check" style={{ marginRight: "6px" }}></i>Updated by: Brisa Mullen
+                  <i className="fas fa-user-check" style={{ marginRight: "6px" }}></i>Updated by: Callum Leon
                 </p>
               </div>
             </div>
